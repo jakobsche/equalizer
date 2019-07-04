@@ -10,7 +10,7 @@ uses
 type
 
   { TLinearDipole }
-
+  { Class template for linear RLC networks }
   TLinearDipole = class(TObject)
   private
     FFrequency: Extended;
@@ -51,14 +51,16 @@ type
     property Frequency: Extended read FFrequency write SetFrequency;
     property Impedance: TComplexNumber read GetImpedance write SetImpedance;
     property Capacitance: Extended read GetCapacitance write SetCapacitance;
-    property InstanceName: string read FInstanceName write FInstanceName;
+    property InstanceName: string read FInstanceName write FInstanceName; {can
+      be used to identify an instance during debugging}
     property Reactance: Extended read GetReactance;
     property Resistance: Extended read GetResistance
       write SetResistance;
   end;
 
   { TStaticLinearDipole }
-
+  { consists of a resistor, capacitor and inductorin a row with constant
+    resistance, capacitance and inductance }
   TStaticLinearDipole = class(TLinearDipole)
   private
     FAdmittance, FImpedance: TComplexNumber;
@@ -79,7 +81,7 @@ type
   end;
 
   { TLinearDipoleCollection }
-
+  { circuit that consists of several TLinearDipole instances }
   TLinearDipoleCollection = class(TLinearDipole)
   private
     FAdmittance: TComplexNumber;
@@ -99,12 +101,13 @@ type
   public
     destructor Destroy; override;
     procedure AddDipole(ADipole: TLinearDipole);
+    procedure RemoveDipole(ADipole: TLinearDipole);
     property DipoleCount: Integer read GetDipoleCount;
     property Dipoles[AnIndex: Integer]: TLinearDipole read GetDipoles;
   end;
 
   { TSerialDipoleCollection }
-
+  { circuit of several TLinearDipole instances in a row }
   TSerialDipoleCollection = class(TLinearDipoleCollection)
   private
     function GetAdmittance: TComplexNumber; override;
@@ -113,7 +116,7 @@ type
   end;
 
   { TParallelDipoleCollection }
-
+  { circuit of several parallel TLinearDipole instances }
   TParallelDipoleCollection = class(TLinearDipoleCollection)
   private
     function GetAdmittance: TComplexNumber; override;
@@ -139,7 +142,6 @@ begin
   if not Assigned(FImpedance) then FImpedance := TComplexSum.Create
   else (FImpedance as TComplexSum).RemoveOperands;
   for i := 0 to DipoleCount - 1 do begin
-    WriteLn(InstanceName, '.', Dipoles[i].InstanceName, '.Impedance = (', Dipoles[i].Impedance.Re, ', ', Dipoles[i].Impedance.Im, '), class = ', Dipoles[i].ClassName);
     (FImpedance as TComplexSum).AddOperand(Dipoles[i].Impedance);
   end;
   (FImpedance as TComplexSum).Operate;
@@ -298,6 +300,11 @@ procedure TLinearDipoleCollection.AddDipole(ADipole: TLinearDipole);
 begin
   ADipole.Frequency := FFrequency;
   DipoleList.Add(ADipole);
+end;
+
+procedure TLinearDipoleCollection.RemoveDipole(ADipole: TLinearDipole);
+begin
+  DipoleList.Remove(ADipole);
 end;
 
 { TLinearDipole }

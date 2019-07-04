@@ -1,3 +1,4 @@
+{ Classes to store and calculate with complex numbers }
 unit ComplexMath;
 
 {$mode objfpc}{$H+}
@@ -14,7 +15,8 @@ type
   { TComplexNumberHandler }
 
   { TComplexAbstract }
-
+  { Class template (base class) for complex numbers and complex operations in
+    this library }
   TComplexAbstract = class(TPersistent)
   private
     FInstanceName: string;
@@ -33,7 +35,8 @@ type
     property Im: Extended read GetIm write SetIm;
     property Abs: Extended read GetAbs write SetAbs;
     property Arg: Extended read GetArg write SetArg;
-    property InstanceName: string read FInstanceName write FInstanceName;
+    property InstanceName: string read FInstanceName write FInstanceName; {use
+      it for a unique Id to find the instance during debugging}
   end;
 
   TComplexNumber = class(TComplexAbstract)
@@ -52,7 +55,8 @@ type
   end;
 
   { TComplexOperation }
-
+  { template for classes that operate on a collection of complex numbers
+    providing the result of the operation }
   TComplexOperation = class(TComplexNumber)
   private
     FOperandList: TList;
@@ -72,14 +76,14 @@ type
   end;
 
   { TComplexSum }
-
+  { sum of complex numbers }
   TComplexSum = class(TComplexOperation)
   public
     procedure Operate; override;
   end;
 
   { TComplexProduct }
-
+  { product of complex numbers }
   TComplexProduct = class(TComplexOperation)
   private
     procedure Operate; override;
@@ -88,7 +92,7 @@ type
   end;
 
   { TComplexQuotient }
-
+  { quotient of complex numbers }
   TComplexQuotient = class(TComplexOperation)
   public
     procedure Operate; override;
@@ -233,7 +237,6 @@ destructor TComplexOperation.Destroy;
 var
   i: Integer;
 begin
-  {for i := 0 to OperandCount - 1 do Operands[i].Free;}
   FOperandList.Free;
   inherited Destroy;
 end;
@@ -258,7 +261,7 @@ begin
   if not Assigned(ResultPointer) then ResultPointer := TComplexNumber.Create;
   ResultPointer.Abs := 1 / Abs;
   ResultPointer.Arg := -Arg;
-  TComplexAbstract(Result) := ResultPointer;
+  Result := ResultPointer;
 end;
 
 end.
