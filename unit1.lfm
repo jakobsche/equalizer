@@ -1,7 +1,7 @@
 object Form1: TForm1
-  Left = 136
+  Left = 125
   Height = 581
-  Top = 151
+  Top = 116
   Width = 1146
   HorzScrollBar.Page = 1105
   VertScrollBar.Page = 555

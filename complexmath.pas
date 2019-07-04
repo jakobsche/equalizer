@@ -118,7 +118,6 @@ var
   x, y: Extended;
   i: Integer;
 begin
-  for i := 0 to OperandCount - 1 do WriteLn(i, Operands[i].Abs, Operands[i].Arg);
   x := Operands[0].Abs;
   y := Operands[0].Arg;
   for i := 1 to OperandCount - 1 do begin

@@ -41,8 +41,8 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="ComplexMath"/>
         <EditorIndex Value="6"/>
-        <TopLine Value="112"/>
-        <CursorPos X="45" Y="121"/>
+        <TopLine Value="110"/>
+        <CursorPos Y="140"/>
         <UsageCount Value="57"/>
         <Loaded Value="True"/>
       </Unit>
@@ -52,8 +52,8 @@
         <UnitName Value="BandPass"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="68"/>
-        <CursorPos X="23" Y="93"/>
+        <TopLine Value="58"/>
+        <CursorPos Y="67"/>
         <UsageCount Value="51"/>
         <Loaded Value="True"/>
       </Unit>
@@ -166,123 +166,123 @@
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="bandpass.pas"/>
-        <Caret Line="98" Column="82" TopLine="94"/>
+        <Caret Line="97" Column="28" TopLine="83"/>
       </Position1>
       <Position2>
         <Filename Value="bandpass.pas"/>
-        <Caret Line="97" Column="28" TopLine="83"/>
+        <Caret Line="25" Column="23" TopLine="10"/>
       </Position2>
       <Position3>
         <Filename Value="bandpass.pas"/>
-        <Caret Line="25" Column="23" TopLine="10"/>
+        <Caret Line="17" Column="28" TopLine="10"/>
       </Position3>
       <Position4>
-        <Filename Value="bandpass.pas"/>
-        <Caret Line="17" Column="28" TopLine="10"/>
-      </Position4>
-      <Position5>
         <Filename Value="complexmath.pas"/>
         <Caret Line="34" Column="14" TopLine="18"/>
-      </Position5>
-      <Position6>
+      </Position4>
+      <Position5>
         <Filename Value="fctform.pas"/>
         <Caret Line="48" Column="49" TopLine="22"/>
+      </Position5>
+      <Position6>
+        <Filename Value="bandpass.pas"/>
+        <Caret Line="25" Column="29" TopLine="9"/>
       </Position6>
       <Position7>
         <Filename Value="bandpass.pas"/>
-        <Caret Line="25" Column="29" TopLine="9"/>
+        <Caret Line="17" Column="22" TopLine="9"/>
       </Position7>
       <Position8>
         <Filename Value="bandpass.pas"/>
-        <Caret Line="17" Column="22" TopLine="9"/>
+        <Caret Line="51" Column="33" TopLine="44"/>
       </Position8>
       <Position9>
         <Filename Value="bandpass.pas"/>
-        <Caret Line="51" Column="33" TopLine="44"/>
+        <Caret Line="14" Column="3"/>
       </Position9>
       <Position10>
-        <Filename Value="bandpass.pas"/>
-        <Caret Line="14" Column="3"/>
+        <Filename Value="linnetwk.pas"/>
+        <Caret Line="112" Column="20" TopLine="92"/>
       </Position10>
       <Position11>
         <Filename Value="linnetwk.pas"/>
-        <Caret Line="112" Column="20" TopLine="92"/>
+        <Caret Line="76" Column="20" TopLine="55"/>
       </Position11>
       <Position12>
         <Filename Value="linnetwk.pas"/>
-        <Caret Line="76" Column="20" TopLine="55"/>
+        <Caret Line="189" Column="26" TopLine="185"/>
       </Position12>
       <Position13>
         <Filename Value="linnetwk.pas"/>
-        <Caret Line="189" Column="26" TopLine="185"/>
+        <Caret Line="55" Column="14" TopLine="41"/>
       </Position13>
       <Position14>
         <Filename Value="linnetwk.pas"/>
-        <Caret Line="55" Column="14" TopLine="41"/>
+        <Caret Line="70" Column="22" TopLine="50"/>
       </Position14>
       <Position15>
-        <Filename Value="linnetwk.pas"/>
-        <Caret Line="70" Column="22" TopLine="50"/>
-      </Position15>
-      <Position16>
         <Filename Value="fctform.pas"/>
         <Caret Line="48" Column="5" TopLine="22"/>
+      </Position15>
+      <Position16>
+        <Filename Value="bandpass.pas"/>
+        <Caret Line="24" Column="26" TopLine="9"/>
       </Position16>
       <Position17>
         <Filename Value="bandpass.pas"/>
-        <Caret Line="24" Column="26" TopLine="9"/>
+        <Caret Line="96" Column="17" TopLine="96"/>
       </Position17>
       <Position18>
         <Filename Value="bandpass.pas"/>
-        <Caret Line="96" Column="17" TopLine="96"/>
+        <Caret Line="14" Column="3"/>
       </Position18>
       <Position19>
-        <Filename Value="bandpass.pas"/>
-        <Caret Line="14" Column="3"/>
+        <Filename Value="linnetwk.pas"/>
+        <Caret Line="108" Column="3" TopLine="93"/>
       </Position19>
       <Position20>
         <Filename Value="linnetwk.pas"/>
-        <Caret Line="108" Column="3" TopLine="93"/>
+        <Caret Line="97" Column="19" TopLine="77"/>
       </Position20>
       <Position21>
         <Filename Value="linnetwk.pas"/>
-        <Caret Line="97" Column="19" TopLine="77"/>
+        <Caret Line="62" Column="38" TopLine="56"/>
       </Position21>
       <Position22>
         <Filename Value="linnetwk.pas"/>
-        <Caret Line="62" Column="38" TopLine="56"/>
+        <Caret Line="68" Column="23" TopLine="55"/>
       </Position22>
       <Position23>
-        <Filename Value="linnetwk.pas"/>
-        <Caret Line="68" Column="23" TopLine="55"/>
+        <Filename Value="bandpass.pas"/>
+        <Caret Line="23" Column="19"/>
       </Position23>
       <Position24>
         <Filename Value="bandpass.pas"/>
-        <Caret Line="23" Column="19"/>
+        <Caret Line="90" Column="20" TopLine="66"/>
       </Position24>
       <Position25>
         <Filename Value="bandpass.pas"/>
-        <Caret Line="90" Column="20" TopLine="66"/>
+        <Caret Line="87" Column="3" TopLine="51"/>
       </Position25>
       <Position26>
-        <Filename Value="bandpass.pas"/>
-        <Caret Line="87" Column="3" TopLine="51"/>
+        <Filename Value="fctform.pas"/>
+        <Caret Line="49" Column="15" TopLine="28"/>
       </Position26>
       <Position27>
         <Filename Value="fctform.pas"/>
-        <Caret Line="49" Column="15" TopLine="28"/>
+        <Caret Line="60" Column="38" TopLine="34"/>
       </Position27>
       <Position28>
         <Filename Value="fctform.pas"/>
-        <Caret Line="60" Column="38" TopLine="34"/>
+        <Caret Line="43" Column="9" TopLine="27"/>
       </Position28>
       <Position29>
         <Filename Value="fctform.pas"/>
-        <Caret Line="43" Column="9" TopLine="27"/>
+        <Caret Line="17" TopLine="2"/>
       </Position29>
       <Position30>
-        <Filename Value="fctform.pas"/>
-        <Caret Line="17" TopLine="2"/>
+        <Filename Value="bandpass.pas"/>
+        <Caret Line="93" Column="23" TopLine="57"/>
       </Position30>
     </JumpHistory>
     <RunParams>
