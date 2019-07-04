@@ -1,0 +1,50 @@
+object FunctionForm: TFunctionForm
+  Left = 750
+  Height = 365
+  Top = 242
+  Width = 499
+  HorzScrollBar.Page = 75
+  VertScrollBar.Page = 50
+  AutoScroll = True
+  Caption = 'FunctionForm'
+  ClientHeight = 365
+  ClientWidth = 499
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  LCLVersion = '2.1.0.0'
+  object Chart1: TChart
+    Left = 0
+    Height = 365
+    Top = 0
+    Width = 499
+    AxisList = <    
+      item
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.LabelFont.Orientation = 900
+        Title.LabelBrush.Style = bsClear
+      end    
+      item
+        Alignment = calBottom
+        LabelSize = 32
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.Caption = 'frequency'
+        Title.LabelBrush.Style = bsClear
+      end>
+    Foot.Brush.Color = clBtnFace
+    Foot.Font.Color = clBlue
+    Title.Brush.Color = clBtnFace
+    Title.Font.Color = clBlue
+    Title.Text.Strings = (
+      'TAChart'
+    )
+    Align = alClient
+    object VoltageTransfer: TLineSeries
+      Title = 'Frequency in Hz'
+      LinePen.Color = clRed
+    end
+    object VoltageTransferDQ: TLineSeries
+    end
+  end
+end
