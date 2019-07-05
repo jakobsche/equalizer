@@ -6,14 +6,16 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, TAGraph, TASeries,
-  BandPass;
+  BandPass, TADrawUtils, TACustomSeries, TATransformations;
 
 type
 
   { TFunctionForm }
 
   TFunctionForm = class(TForm)
-    Chart1: TChart;
+    Chart: TChart;
+    ChartAxisLgTransformation: TChartAxisTransformations;
+    ChartAxisLgTransformationLogarithmAxisTransform1: TLogarithmAxisTransform;
     VoltageTransfer: TLineSeries;
     VoltageTransferDQ: TLineSeries;
     procedure FormCreate(Sender: TObject);
@@ -36,8 +38,8 @@ implementation
 procedure TFunctionForm.FormCreate(Sender: TObject);
 const
   N = 1000;
-  MIN = 10;
-  MAX = 1000;
+  MIN = 1;
+  MAX = 2000;
 var
   i: Integer;
   f, f0, U, U0, DQ: Double;
@@ -48,9 +50,6 @@ begin
     f := MIN + (MAX - MIN) * i / (N - 1);
     U := LowPassFilter.VoltageAmplitudeTransfer(f);
     VoltageTransfer.AddXY(f, U);
-    {WriteLn(i, f, LowPassFilter.VoltageAmplitudeTransfer(f),
-      LowPassFilter.ComplexVoltageTransfer.Re,
-      LowPassFilter.ComplexVoltageTransfer.Im);}
     if i = 0 then begin
       f0 := 0;
       U0 := U

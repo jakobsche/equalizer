@@ -12,7 +12,7 @@ object FunctionForm: TFunctionForm
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   LCLVersion = '2.1.0.0'
-  object Chart1: TChart
+  object Chart: TChart
     Left = 0
     Height = 365
     Top = 0
@@ -25,26 +25,47 @@ object FunctionForm: TFunctionForm
         Title.LabelBrush.Style = bsClear
       end    
       item
+        Intervals.MinLength = 20
+        Intervals.Options = [aipGraphCoords, aipUseMaxLength, aipUseMinLength, aipUseNiceSteps]
+        Intervals.Tolerance = 10
         Alignment = calBottom
         LabelSize = 32
         Marks.LabelBrush.Style = bsClear
         Minors = <>
-        Title.Caption = 'frequency'
+        Title.Visible = True
+        Title.Caption = 'f in Hz'
         Title.LabelBrush.Style = bsClear
+        Transformations = ChartAxisLgTransformation
       end>
     Foot.Brush.Color = clBtnFace
     Foot.Font.Color = clBlue
+    Legend.Alignment = laBottomCenter
+    Legend.Visible = True
     Title.Brush.Color = clBtnFace
     Title.Font.Color = clBlue
     Title.Text.Strings = (
-      'TAChart'
+      'Band Pass Filter Frequency Responses'
     )
+    Title.Visible = True
     Align = alClient
     object VoltageTransfer: TLineSeries
-      Title = 'Frequency in Hz'
+      Title = 'Transfer factor'
+      AxisIndexX = 1
+      AxisIndexY = 0
       LinePen.Color = clRed
     end
     object VoltageTransferDQ: TLineSeries
+      Title = 'Transfer factor rise'
+      AxisIndexX = 1
+      AxisIndexY = 0
+      LinePen.Color = clAqua
+    end
+  end
+  object ChartAxisLgTransformation: TChartAxisTransformations
+    left = 120
+    top = 56
+    object ChartAxisLgTransformationLogarithmAxisTransform1: TLogarithmAxisTransform
+      Base = 10
     end
   end
 end

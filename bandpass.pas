@@ -48,8 +48,6 @@ begin
     FComplexVoltageTransfer := TComplexQuotient.Create
   else FComplexVoltageTransfer.RemoveOperands;
   Z1.Frequency := Frequency;
-  WriteLn(Z1.InstanceName, '.Impedance = (', Z1.Impedance.Re, ', ', Z1.Impedance.Im, ')');
-  WriteLn('Impedance = (', Impedance.Re, ', ', Impedance.Im, ')');
   FComplexVoltageTransfer.AddOperand(Z1.Impedance);
   FComplexVoltageTransfer.AddOperand(Impedance);
   FComplexVoltageTransfer.Operate;
@@ -104,7 +102,6 @@ function TLowPassFilter.VoltageAmplitudeTransfer(AFrequency: Extended): Extended
 begin
   Frequency := AFrequency;
   Result := ComplexVoltageTransfer.Abs;
-  WriteLn(InstanceName + '.ComplexVoltageTransfer.Abs = ', Result);
 end;
 
 { TBandPassFilter }

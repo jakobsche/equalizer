@@ -47,6 +47,7 @@ type
   protected
     function GetImpedance: TComplexNumber; virtual; abstract;
   public
+    constructor Create;
     property Admittance: TComplexNumber read GetAdmittance;
     property Frequency: Extended read FFrequency write SetFrequency;
     property Impedance: TComplexNumber read GetImpedance write SetImpedance;
@@ -350,6 +351,12 @@ end;
 procedure TLinearDipole.SetFrequency(AValue: Extended);
 begin
   FFrequency := AValue
+end;
+
+constructor TLinearDipole.Create;
+begin
+  inherited Create;
+  Frequency := 10;
 end;
 
 end.
