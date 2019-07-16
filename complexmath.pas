@@ -66,13 +66,14 @@ type
     function GetRe: Extended; override;
     function GetIm: Extended; override;
     procedure Operate; virtual; abstract;
+    procedure SetOperands(AnIndex: Integer; AValue: TComplexAbstract);
     property OperandList: TList read GetOperandList;
   public
     destructor Destroy; override;
     procedure AddOperand(AnOperand: TComplexAbstract);
     procedure RemoveOperands;
     property OperandCount: Integer read GetOperandCount;
-    property Operands[AnIndex: Integer]: TComplexAbstract read GetOperands;
+    property Operands[AnIndex: Integer]: TComplexAbstract read GetOperands write SetOperands;
   end;
 
   { TComplexSum }
@@ -231,6 +232,12 @@ function TComplexOperation.GetIm: Extended;
 begin
   Operate;
   Result := inherited GetIm
+end;
+
+procedure TComplexOperation.SetOperands(AnIndex: Integer;
+  AValue: TComplexAbstract);
+begin
+  OperandList[AnIndex] := AValue
 end;
 
 destructor TComplexOperation.Destroy;

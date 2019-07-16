@@ -103,6 +103,9 @@ type
     destructor Destroy; override;
     procedure AddDipole(ADipole: TLinearDipole);
     procedure RemoveDipole(ADipole: TLinearDipole);
+    function Response(Dipole: TLinearDipole; F: Extended): TComplexNumber;
+      virtual; abstract;
+    function Response(ADipole: Integer; F: Extended): TComplexNumber;
     property DipoleCount: Integer read GetDipoleCount;
     property Dipoles[AnIndex: Integer]: TLinearDipole read GetDipoles;
   end;
@@ -111,9 +114,13 @@ type
   { circuit of several TLinearDipole instances in a row }
   TSerialDipoleCollection = class(TLinearDipoleCollection)
   private
+    FResponse: TComplexQuotient;
     function GetAdmittance: TComplexNumber; override;
   protected
     function GetImpedance: TComplexNumber; override;
+  public
+    destructor Destroy; override;
+    function Response(ADipole: TLinearDipole; F: Extended): TComplexNumber; override;
   end;
 
   { TParallelDipoleCollection }
@@ -147,6 +154,25 @@ begin
   end;
   (FImpedance as TComplexSum).Operate;
   Result := FImpedance
+end;
+
+destructor TSerialDipoleCollection.Destroy;
+begin
+  FResponse.Free;
+  inherited Destroy;
+end;
+
+function TSerialDipoleCollection.Response(ADipole: TLinearDipole; F: Extended
+  ): TComplexNumber;
+begin
+  if not Assigned(FResponse) then begin
+    FResponse := TComplexQuotient.Create;
+    FResponse.AddOperand(ADipole.Impedance);
+    FResponse.AddOperand(Impedance);
+  end
+  else FResponse.Operands[0] := ADipole.Impedance;
+  FResponse.Operate;
+  Result := FResponse
 end;
 
 { TParallelDipoleCollection }
@@ -306,6 +332,12 @@ end;
 procedure TLinearDipoleCollection.RemoveDipole(ADipole: TLinearDipole);
 begin
   DipoleList.Remove(ADipole);
+end;
+
+function TLinearDipoleCollection.Response(ADipole: Integer; F: Extended
+  ): TComplexNumber;
+begin
+  Result := Response(Dipoles[ADipole], F)
 end;
 
 { TLinearDipole }

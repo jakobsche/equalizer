@@ -61,13 +61,13 @@ begin
   diagram }
   R3b := TStaticLinearDipole.Create;
   R3b.InstanceName := 'R3b';
-  R3b.Resistance := 11E3;
+  R3b.Resistance := 11E3{11E3};
   AddDipole(R3b);
   Z3a := TParallelDipoleCollection.Create;
   Z3a.InstanceName := 'Z3a';
   R3a := TStaticLinearDipole.Create;
   R3a.InstanceName := 'R3a';
-  R3a.Resistance := 11E3;
+  R3a.Resistance := 11E3{11E3};
   Z3a.AddDipole(R3a);
   Z3aX := TSerialDipoleCollection.Create;
   Z3aX.InstanceName := 'Z3aX';
@@ -85,13 +85,13 @@ begin
   R1.InstanceName := 'R1';
   R1.Resistance := 100E3;
   Z1.AddDipole(R1);
-  RD := TStaticLinearDipole.Create;
+  {RD := TStaticLinearDipole.Create;
   RD.InstanceName := 'RD';
   RD.Resistance := 12E3;
-  Z1.AddDipole(RD);
+  Z1.AddDipole(RD);}
   C1 := TStaticLinearDipole.Create;
   C1.InstanceName := 'C1';
-  C1.Capacitance := 14E-8;
+  C1.Capacitance := 1.4E-8;
   Z1.AddDipole(C1);
   Z3aX.AddDipole(Z1);
   Z3a.AddDipole(Z3aX);
